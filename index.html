@@ -1,883 +1,1519 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="NovaAI - The future of AI-powered business intelligence platform">
-<title>NovaAI - AI-Powered Business Intelligence</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter',sans-serif;background:#0B1020;color:#FFFFFF;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
-img{max-width:100%;height:auto;display:block}
-a{text-decoration:none;color:inherit}
-button{cursor:pointer;font-family:inherit;border:none;background:none}
-ul{list-style:none}
-.container{max-width:1280px;margin:0 auto;padding:0 40px}
-.section{padding:120px 0}
-.section-heading{text-align:center;margin-bottom:64px}
-.section-heading h2{font-size:48px;font-weight:700;line-height:1.15;margin-bottom:16px}
-.section-heading p{font-size:18px;color:#CBD5E1;max-width:680px;margin:0 auto;line-height:1.7}
-.gradient-text{background:linear-gradient(135deg,#7C3AED,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 32px;border-radius:12px;font-size:16px;font-weight:600;transition:all .3s ease;position:relative;overflow:hidden}
-.btn-primary{background:linear-gradient(135deg,#7C3AED,#06B6D4);color:#fff}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 32px rgba(124,58,237,.4)}
-.btn-secondary{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#fff}
-.btn-secondary:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
-.btn-outline{background:transparent;border:1px solid rgba(255,255,255,.15);color:#fff}
-.btn-outline:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.25)}
-.btn-lg{padding:18px 40px;font-size:18px}
-.glass{background:rgba(255,255,255,.04);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.08);border-radius:16px}
-.fade-up{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
-.fade-up.visible{opacity:1;transform:translateY(0)}
-.hover-lift{transition:transform .3s ease,box-shadow .3s ease}
-.hover-lift:hover{transform:translateY(-6px)}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radiant Frontier</title>
+  <meta name="description" content="A digital launchpad for the 2026 International Day of the Girl Child, empowering girls to own their future through purpose, technology, and innovation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    :root {
+      --bg: #08080A;
+      --lime: #DFFF00;
+      --purple: #9D50BB;
+      --cyan: #00D4FF;
+      --pink: #FF6B9D;
+      --white: #F9FAFB;
+      --muted: rgba(249,250,251,.6);
+      --border: rgba(255,255,255,.1);
+      --glass: rgba(255,255,255,.03);
+      --max-w: 1280px;
+      --radius-sm: 12px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --transition: 300ms ease;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Space Grotesk', 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
 
-/* Announcement Bar */
-.announcement-bar{background:linear-gradient(90deg,rgba(124,58,237,.15),rgba(6,182,212,.15));border-bottom:1px solid rgba(255,255,255,.06);padding:12px 0;text-align:center;position:relative;z-index:100}
-.announcement-bar .container{display:flex;align-items:center;justify-content:center;gap:8px}
-.announcement-bar p{font-size:14px;color:#CBD5E1}
-.announcement-bar a{color:#7C3AED;font-weight:600;font-size:14px;transition:color .3s;display:inline-flex;align-items:center;gap:4px}
-.announcement-bar a:hover{color:#06B6D4}
-.announcement-bar .dot{width:6px;height:6px;border-radius:50%;background:#7C3AED;display:inline-block;animation:pulse-dot 2s infinite}
-@keyframes pulse-dot{0%,100%{opacity:1}50%{opacity:.4}}
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
-/* Navigation */
-nav{position:sticky;top:0;z-index:99;background:rgba(11,16,32,.8);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.06);transition:all .3s ease}
-nav .container{display:flex;align-items:center;justify-content:space-between;padding-top:16px;padding-bottom:16px}
-.nav-logo{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:700}
-.nav-logo svg{width:32px;height:32px}
-.nav-links{display:flex;align-items:center;gap:32px}
-.nav-links a{font-size:15px;color:#CBD5E1;transition:color .3s;font-weight:500}
-.nav-links a:hover{color:#fff}
-.nav-buttons{display:flex;align-items:center;gap:12px}
-.nav-buttons .btn{padding:10px 24px;font-size:14px}
-.nav-toggle{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
-.nav-toggle span{width:24px;height:2px;background:#fff;border-radius:2px;transition:all .3s}
+    /* ===== GLASS CARD ===== */
+    .glass-card {
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+    }
 
-/* Hero */
-.hero{position:relative;overflow:hidden;padding:120px 0}
-.hero-bg-glow{position:absolute;top:-20%;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(124,58,237,.15) 0%,transparent 70%);pointer-events:none;z-index:0}
-.hero .container{position:relative;z-index:1;display:flex;align-items:center;gap:80px}
-.hero-left{flex:1;min-width:0}
-.hero-right{flex:1;min-width:0;position:relative}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.25);border-radius:100px;font-size:13px;font-weight:600;color:#7C3AED;margin-bottom:24px;text-transform:uppercase;letter-spacing:.5px}
-.hero h1{font-size:72px;font-weight:700;line-height:1.08;margin-bottom:20px;letter-spacing:-2px}
-.hero p{font-size:18px;color:#CBD5E1;max-width:540px;line-height:1.7;margin-bottom:36px}
-.hero-buttons{display:flex;align-items:center;gap:16px;margin-bottom:48px}
-.hero-trust{display:flex;align-items:center;gap:16px}
-.hero-trust-avatars{display:flex}
-.hero-trust-avatars img{width:40px;height:40px;border-radius:50%;border:2px solid #0B1020;margin-right:-10px}
-.hero-trust p{font-size:14px;color:#CBD5E1;margin:0}
-.hero-trust strong{color:#fff}
+    /* ===== SECTION TOP BORDER ===== */
+    .section-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      pointer-events: none;
+    }
+    .section-border-lime {
+      background: linear-gradient(to right, transparent, rgba(223,255,0,.2), transparent);
+    }
+    .section-border-purple {
+      background: linear-gradient(to right, transparent, rgba(157,80,187,.3), transparent);
+    }
 
-/* Dashboard Mockup */
-.dashboard-mockup{position:relative;width:100%}
-.dashboard-main{background:linear-gradient(135deg,rgba(30,41,59,.9),rgba(15,23,42,.9));border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:24px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 24px 80px rgba(0,0,0,.5)}
-.dashboard-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
-.dashboard-dots{display:flex;gap:6px}
-.dashboard-dots span{width:10px;height:10px;border-radius:50%}
-.dashboard-dots span:nth-child(1){background:#ef4444}
-.dashboard-dots span:nth-child(2){background:#f59e0b}
-.dashboard-dots span:nth-child(3){background:#22c55e}
-.dashboard-header-right{display:flex;align-items:center;gap:12px}
-.dashboard-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#06B6D4)}
-.dashboard-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-.dashboard-card{background:rgba(255,255,255,.04);border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,.06)}
-.dashboard-card .label{font-size:11px;text-transform:uppercase;color:#CBD5E1;letter-spacing:.5px;margin-bottom:4px}
-.dashboard-card .value{font-size:22px;font-weight:700}
-.dashboard-card .change{font-size:12px;color:#22c55e;display:flex;align-items:center;gap:4px}
-.chart-bar{display:flex;align-items:flex-end;gap:4px;height:48px;margin-top:8px}
-.chart-bar span{width:100%;border-radius:3px;background:linear-gradient(180deg,#7C3AED,#06B6D4);transition:height .6s ease}
-.dashboard-bottom{display:grid;grid-template-columns:2fr 1fr;gap:16px}
-.dashboard-progress{background:rgba(255,255,255,.04);border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,.06)}
-.dashboard-progress .bar-track{height:6px;background:rgba(255,255,255,.08);border-radius:3px;margin-top:8px;overflow:hidden}
-.dashboard-progress .bar-fill{height:100%;background:linear-gradient(90deg,#7C3AED,#06B6D4);border-radius:3px;width:72%}
-.dashboard-progress-row{display:flex;justify-content:space-between;margin-bottom:4px}
-.dashboard-progress-row span{font-size:12px;color:#CBD5E1}
-.dashboard-notification{background:rgba(255,255,255,.04);border-radius:12px;padding:12px 16px;border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;gap:10px}
-.dashboard-notification .notif-dot{width:8px;height:8px;border-radius:50%;background:#7C3AED;flex-shrink:0}
-.dashboard-notification .notif-text{font-size:12px;color:#CBD5E1}
-.dashboard-notification .notif-time{font-size:11px;color:rgba(255,255,255,.3);margin-left:auto}
+    /* ===== AMBIENT GLOW ===== */
+    .glow-lime {
+      background: radial-gradient(circle, rgba(223,255,0,.05), transparent 70%);
+    }
+    .glow-purple {
+      background: radial-gradient(circle, rgba(157,80,187,.06), transparent 70%);
+    }
+    .glow-lime-center {
+      background: radial-gradient(circle, rgba(223,255,0,.04), transparent 70%);
+    }
 
-/* Floating cards */
-.floating-card{position:absolute;background:rgba(15,23,42,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:12px;box-shadow:0 12px 40px rgba(0,0,0,.4)}
-.floating-card-1{top:-20px;right:-30px;animation:float 6s ease-in-out infinite}
-.floating-card-2{bottom:40px;left:-40px;animation:float 8s ease-in-out infinite 1s}
-.floating-card-3{top:40%;right:-40px;animation:float 7s ease-in-out infinite .5s}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
-.floating-card .fc-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center}
-.floating-card .fc-info .fc-label{font-size:11px;color:#CBD5E1}
-.floating-card .fc-info .fc-value{font-size:16px;font-weight:700}
+    /* ===== TEXT GLOW ===== */
+    .text-glow-lime { color: var(--lime); }
+    .text-glow-purple { color: var(--purple); }
+    .text-glow-cyan { color: var(--cyan); }
+    .text-glow-pink { color: var(--pink); }
 
-/* Trusted Companies */
-.companies{padding:80px 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
-.companies .container{text-align:center}
-.companies p{font-size:14px;color:#CBD5E1;text-transform:uppercase;letter-spacing:2px;margin-bottom:40px}
-.companies-grid{display:flex;align-items:center;justify-content:center;gap:64px;flex-wrap:wrap}
-.company-logo{opacity:.3;transition:opacity .3s;filter:grayscale(1) brightness(2)}
-.company-logo:hover{opacity:.7}
-.company-logo svg{height:32px;width:auto}
+    /* ===== NAV ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: background var(--transition);
+    }
+    .nav.scrolled {
+      background: rgba(8,8,10,.9);
+      backdrop-filter: blur(20px);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .logo span { color: var(--lime); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(249,250,251,.4);
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--white); }
+    .btn-nav {
+      background: var(--lime);
+      color: var(--bg) !important;
+      padding: 10px 24px;
+      border-radius: 100px;
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .btn-nav:hover {
+      box-shadow: 0 0 30px rgba(223,255,0,.3);
+      transform: scale(1.03);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      z-index: 1001;
+    }
+    .hamburger span {
+      width: 26px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+    .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Features Grid */
-.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.feature-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:36px 28px;transition:all .4s ease;position:relative;overflow:hidden}
-.feature-card::before{content:'';position:absolute;inset:0;border-radius:20px;padding:1px;background:linear-gradient(135deg,transparent,transparent);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;transition:all .4s ease;pointer-events:none}
-.feature-card:hover::before{background:linear-gradient(135deg,rgba(124,58,237,.5),rgba(6,182,212,.3))}
-.feature-card:hover{background:rgba(255,255,255,.07);transform:translateY(-8px);box-shadow:0 16px 48px rgba(124,58,237,.15)}
-.feature-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(6,182,212,.1));border:1px solid rgba(124,58,237,.2)}
-.feature-card h3{font-size:22px;font-weight:600;margin-bottom:12px}
-.feature-card p{font-size:15px;color:#CBD5E1;line-height:1.7}
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 0 80px;
+    }
+    .hero-bg-glow {
+      position: absolute;
+      top: 30%;
+      left: -10%;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(223,255,0,.06), transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 20px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 76px);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+    .hero h1 .lime { color: var(--lime); }
+    .hero h1 .purple { color: var(--purple); }
+    .hero p {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 36px;
+      max-width: 540px;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn-primary, .btn-secondary, .btn-lime {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      border-radius: var(--radius-sm);
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      font-family: inherit;
+    }
+    .btn-primary {
+      background: var(--lime);
+      color: var(--bg);
+    }
+    .btn-primary:hover {
+      box-shadow: 0 0 40px rgba(223,255,0,.3);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      border-color: var(--lime);
+      color: var(--lime);
+      transform: translateY(-2px);
+    }
+    .btn-lime {
+      background: var(--lime);
+      color: var(--bg);
+      font-size: 17px;
+      padding: 18px 44px;
+      border-radius: var(--radius-sm);
+    }
+    .btn-lime:hover {
+      box-shadow: 0 0 50px rgba(223,255,0,.3);
+      transform: translateY(-2px);
+    }
 
-/* How It Works */
-.how-steps{display:flex;gap:32px;position:relative}
-.how-step{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:48px 32px;text-align:center;position:relative;transition:all .4s ease}
-.how-step:hover{transform:translateY(-8px);box-shadow:0 16px 48px rgba(124,58,237,.15);background:rgba(255,255,255,.07)}
-.how-step:hover .step-number{background:linear-gradient(135deg,#7C3AED,#06B6D4);box-shadow:0 0 40px rgba(124,58,237,.3)}
-.step-number{width:72px;height:72px;border-radius:50%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;margin:0 auto 24px;transition:all .4s ease;color:#7C3AED}
-.how-step svg{width:48px;height:48px;margin-bottom:20px;color:#7C3AED}
-.how-step h3{font-size:24px;font-weight:600;margin-bottom:12px}
-.how-step p{font-size:15px;color:#CBD5E1;line-height:1.7;max-width:320px;margin:0 auto}
+    /* ===== SECTION COMMON ===== */
+    section {
+      position: relative;
+      padding: 112px 0;
+      overflow: hidden;
+    }
+    .section-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--lime);
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(32px, 5vw, 60px);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 20px;
+    }
+    .section-desc {
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 680px;
+    }
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
 
-/* Product Showcase */
-.showcase{background:linear-gradient(180deg,#0B1020 0%,rgba(124,58,237,.03) 50%,#0B1020 100%);overflow:hidden}
-.showcase .container{position:relative}
-.showcase-mockup{position:relative;max-width:900px;margin:0 auto}
-.laptop-frame{background:#1e293b;border-radius:24px;padding:12px 12px 0;border:1px solid rgba(255,255,255,.1);box-shadow:0 32px 80px rgba(0,0,0,.5)}
-.laptop-screen{background:#0B1020;border-radius:12px;overflow:hidden;aspect-ratio:16/10}
-.laptop-screen img{width:100%;height:100%;object-fit:cover}
-.laptop-base{height:18px;background:#1e293b;border-radius:0 0 24px 24px;margin:0 auto;width:60%;border:1px solid rgba(255,255,255,.08);border-top:none}
-.showcase-widgets{position:absolute;width:100%;height:100%;top:0;left:0;pointer-events:none}
-.showcase-widget{position:absolute;background:rgba(15,23,42,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:16px 20px;display:flex;align-items:center;gap:12px;box-shadow:0 12px 40px rgba(0,0,0,.4);pointer-events:auto}
-.sw-1{top:10%;left:-60px;animation:float 6s ease-in-out infinite}
-.sw-2{bottom:20%;right:-50px;animation:float 8s ease-in-out infinite 1s}
-.sw-3{top:50%;left:-30px;animation:float 7s ease-in-out infinite .5s}
-.sw-4{top:30%;right:-40px;animation:float 5s ease-in-out infinite 2s}
-.showcase-widget .sw-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.showcase-widget .sw-info .sw-value{font-size:18px;font-weight:700}
-.showcase-widget .sw-info .sw-label{font-size:12px;color:#CBD5E1}
+    /* ===== ABOUT / MISSION ===== */
+    .about-grid {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+    }
+    .about-image {
+      flex: 1;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .about-image img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+    }
+    .about-content { flex: 1; }
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+    }
+    .about-stat {
+      text-align: center;
+      padding: 24px;
+      border-radius: var(--radius-sm);
+      background: var(--glass);
+      border: 1px solid var(--border);
+    }
+    .about-stat .num {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--lime);
+      line-height: 1;
+    }
+    .about-stat .label {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
 
-/* Statistics */
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
-.stat-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:40px 28px;text-align:center;transition:all .4s ease}
-.stat-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.07);box-shadow:0 12px 40px rgba(124,58,237,.1)}
-.stat-card .stat-number{font-size:44px;font-weight:700;margin-bottom:8px;background:linear-gradient(135deg,#7C3AED,#06B6D4);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.stat-card .stat-label{font-size:16px;color:#CBD5E1}
-.stat-card .stat-icon{margin-bottom:16px}
+    /* ===== FOUR PILLARS (Sessions) ===== */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .pillar-card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 32px;
+      cursor: pointer;
+      transition: border-color var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .pillar-card:hover {
+      border-color: rgba(255,255,255,.2);
+    }
+    .pillar-card .hover-glow {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity .7s;
+      pointer-events: none;
+    }
+    .pillar-card:hover .hover-glow { opacity: 1; }
+    .pillar-card .p-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+    }
+    .pillar-card .p-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+    }
+    .pillar-card .p-num {
+      font-size: 13px;
+      color: rgba(249,250,251,.3);
+      font-family: monospace;
+    }
+    .pillar-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .pillar-card .p-sub {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+    .pillar-card .p-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .pillar-card .p-tag {
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 100px;
+      background: rgba(255,255,255,.05);
+      color: rgba(249,250,251,.5);
+    }
+    .pillar-card .p-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: gap var(--transition);
+    }
+    .pillar-card .p-link:hover { gap: 10px; }
 
-/* Testimonials */
-.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.testimonial-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:36px 28px;transition:all .4s ease;display:flex;flex-direction:column}
-.testimonial-card:hover{transform:translateY(-6px);background:rgba(255,255,255,.07);box-shadow:0 12px 40px rgba(124,58,237,.1)}
-.testimonial-stars{display:flex;gap:4px;margin-bottom:20px}
-.testimonial-stars svg{width:18px;height:18px;color:#f59e0b}
-.testimonial-quote{font-size:15px;color:#CBD5E1;line-height:1.8;margin-bottom:24px;flex:1}
-.testimonial-author{display:flex;align-items:center;gap:14px}
-.testimonial-avatar{width:48px;height:48px;border-radius:50%;overflow:hidden;flex-shrink:0}
-.testimonial-avatar img{width:100%;height:100%;object-fit:cover}
-.testimonial-name{font-size:16px;font-weight:600}
-.testimonial-role{font-size:13px;color:#CBD5E1}
+    /* ===== INNOVATION FORGE ===== */
+    .forge-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .forge-image-wrap {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .forge-image-wrap img {
+      width: 100%;
+      height: 480px;
+      object-fit: cover;
+    }
+    .forge-image-wrap .img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(8,8,10,.4), transparent);
+    }
+    .forge-float-card {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      padding: 16px 20px;
+      border: 1px solid rgba(223,255,0,.2);
+    }
+    .forge-float-card p:first-child {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--lime);
+    }
+    .forge-float-card p:last-child {
+      font-size: 12px;
+      color: rgba(249,250,251,.4);
+    }
+    .forge-list {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin: 40px 0;
+    }
+    .forge-list-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .forge-list-item .step-num {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      color: var(--lime);
+      transition: border-color var(--transition);
+    }
+    .forge-list-item:hover .step-num {
+      border-color: rgba(223,255,0,.3);
+    }
+    .forge-list-item .step-content h3 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .forge-list-item .step-content p {
+      font-size: 14px;
+      color: rgba(249,250,251,.5);
+      line-height: 1.6;
+    }
+    .forge-num {
+      font-size: 11px;
+      color: rgba(249,250,251,.2);
+      font-family: monospace;
+    }
 
-/* Pricing */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
-.pricing-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:40px 32px;position:relative;transition:all .4s ease}
-.pricing-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(124,58,237,.15)}
-.pricing-card.featured{background:linear-gradient(135deg,rgba(124,58,237,.1),rgba(6,182,212,.05));border-color:rgba(124,58,237,.3);transform:scale(1.04)}
-.pricing-card.featured:hover{transform:scale(1.04) translateY(-6px)}
-.pricing-badge{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,#7C3AED,#06B6D4);padding:6px 20px;border-radius:100px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
-.pricing-name{font-size:20px;font-weight:600;margin-bottom:8px}
-.pricing-desc{font-size:14px;color:#CBD5E1;margin-bottom:24px}
-.pricing-price{font-size:48px;font-weight:700;margin-bottom:8px}
-.pricing-price span{font-size:18px;font-weight:400;color:#CBD5E1}
-.pricing-period{font-size:14px;color:#CBD5E1;margin-bottom:32px}
-.pricing-features{display:flex;flex-direction:column;gap:14px;margin-bottom:36px}
-.pricing-feature{display:flex;align-items:center;gap:10px;font-size:15px;color:#CBD5E1}
-.pricing-feature svg{width:18px;height:18px;color:#22c55e;flex-shrink:0}
-.pricing-card .btn{width:100%}
+    /* ===== AGENDA ===== */
+    .agenda-wrap {
+      max-width: 800px;
+      margin: 48px auto 0;
+    }
+    .agenda-line {
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, rgba(223,255,0,.4), rgba(157,80,187,.3), rgba(223,255,0,.1));
+    }
+    .agenda-items {
+      position: relative;
+    }
+    .agenda-item {
+      display: flex;
+      gap: 24px;
+      padding: 8px 0;
+      position: relative;
+    }
+    .agenda-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 4px var(--bg);
+    }
+    .agenda-body {
+      flex: 1;
+      padding: 12px 20px;
+      border-radius: var(--radius-sm);
+      transition: background var(--transition);
+    }
+    .agenda-item:hover .agenda-body {
+      background: rgba(255,255,255,.02);
+    }
+    .agenda-body .a-time {
+      font-size: 12px;
+      font-family: monospace;
+      letter-spacing: .5px;
+      opacity: .7;
+    }
+    .agenda-body h3 {
+      font-size: 16px;
+      font-weight: 600;
+    }
+    .agenda-body .a-sub {
+      font-size: 13px;
+      color: rgba(249,250,251,.4);
+    }
 
-/* FAQ */
-.faq-list{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
-.faq-item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:16px;overflow:hidden;transition:all .3s ease}
-.faq-item:hover{border-color:rgba(124,58,237,.25)}
-.faq-question{width:100%;display:flex;align-items:center;justify-content:space-between;padding:24px 28px;font-size:17px;font-weight:600;color:#fff;text-align:left;transition:color .3s}
-.faq-question:hover{color:#7C3AED}
-.faq-question svg{width:20px;height:20px;flex-shrink:0;transition:transform .3s ease;color:#CBD5E1}
-.faq-item.active .faq-question svg{transform:rotate(180deg)}
-.faq-answer{padding:0 28px 24px;font-size:15px;color:#CBD5E1;line-height:1.8;display:none}
-.faq-item.active .faq-answer{display:block}
-.faq-item.active{border-color:rgba(124,58,237,.3)}
+    /* ===== GLOBAL WATCH PARTY ===== */
+    .map-card {
+      padding: 32px 48px;
+      margin-bottom: 48px;
+      min-height: 320px;
+    }
+    .map-grid {
+      background-image: radial-gradient(circle, rgba(255,255,255,.3) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
 
-/* CTA */
-.cta{position:relative;overflow:hidden}
-.cta-bg{position:absolute;inset:0;background:linear-gradient(135deg,rgba(124,58,237,.08),rgba(6,182,212,.05));pointer-events:none}
-.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(124,58,237,.12) 0%,transparent 70%);pointer-events:none}
-.cta .container{position:relative;z-index:1;text-align:center}
-.cta h2{font-size:48px;font-weight:700;margin-bottom:16px;line-height:1.15}
-.cta p{font-size:18px;color:#CBD5E1;max-width:560px;margin:0 auto 40px;line-height:1.7}
-.cta-buttons{display:flex;align-items:center;justify-content:center;gap:16px}
+    /* ===== I AM ACTIVATION ===== */
+    .iam-card {
+      padding: 32px 40px;
+    }
+    .iam-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .iam-prefix {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--lime);
+      flex-shrink: 0;
+    }
+    .iam-input {
+      flex: 1;
+      padding: 14px 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.05);
+      color: var(--white);
+      font-family: inherit;
+      font-size: 18px;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+    .iam-input::placeholder { color: rgba(249,250,251,.2); }
+    .iam-input:focus { border-color: rgba(223,255,0,.3); }
 
-/* Footer */
-footer{background:#0B1020;border-top:1px solid rgba(255,255,255,.06);padding:80px 0 32px}
-.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:48px;margin-bottom:48px}
-.footer-brand p{font-size:15px;color:#CBD5E1;line-height:1.7;margin-top:16px;max-width:340px}
-.footer-social{display:flex;gap:12px;margin-top:24px}
-.footer-social a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;transition:all .3s}
-.footer-social a:hover{background:rgba(124,58,237,.2);border-color:#7C3AED;transform:translateY(-3px)}
-.footer-social a svg{width:18px;height:18px;color:#CBD5E1}
-.footer-col h4{font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:#CBD5E1;margin-bottom:20px}
-.footer-col a{display:block;font-size:15px;color:#CBD5E1;padding:6px 0;transition:color .3s}
-.footer-col a:hover{color:#7C3AED}
-.footer-newsletter p{font-size:14px;color:#CBD5E1;margin-bottom:16px;line-height:1.7}
-.newsletter-form{display:flex;gap:8px}
-.newsletter-form input{flex:1;padding:12px 16px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:#fff;font-size:14px;font-family:inherit;outline:none;transition:border-color .3s}
-.newsletter-form input::placeholder{color:rgba(255,255,255,.3)}
-.newsletter-form input:focus{border-color:#7C3AED}
-.newsletter-form button{padding:12px 20px;border-radius:10px;background:linear-gradient(135deg,#7C3AED,#06B6D4);color:#fff;font-size:14px;font-weight:600;border:none;cursor:pointer;transition:all .3s}
-.newsletter-form button:hover{box-shadow:0 4px 20px rgba(124,58,237,.3)}
-.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;align-items:center;justify-content:space-between}
-.footer-bottom p{font-size:14px;color:rgba(255,255,255,.3)}
+    /* ===== MENTOR/REGISTER FORMS ===== */
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .field label {
+      font-size: 14px;
+      font-weight: 500;
+      color: rgba(249,250,251,.7);
+    }
+    .field label .req { color: var(--lime); margin-left: 4px; }
+    .field input, .field select, .field textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.05);
+      color: var(--white);
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+    .field input::placeholder, .field textarea::placeholder { color: rgba(249,250,251,.2); }
+    .field input:focus, .field select:focus, .field textarea:focus { border-color: rgba(223,255,0,.3); }
+    .field select {
+      appearance: none;
+    }
+    .field textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
 
-/* Mobile Nav */
-@media(max-width:1024px){
-.nav-links{display:none}
-.nav-toggle{display:flex}
-.nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:rgba(11,16,32,.98);backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);padding:24px 40px;gap:20px;border-bottom:1px solid rgba(255,255,255,.06)}
-.nav-links.open a{font-size:16px}
-.nav-buttons .btn:nth-child(1){display:none}
-.hero .container{flex-direction:column;gap:60px}
-.hero h1{font-size:48px;letter-spacing:-1px}
-.hero-left{text-align:center}
-.hero p{margin-left:auto;margin-right:auto}
-.hero-buttons{justify-content:center}
-.hero-trust{justify-content:center}
-.dashboard-mockup{max-width:560px;margin:0 auto}
-.floating-card-1{right:-10px}
-.floating-card-2{left:-10px}
-.floating-card-3{right:-10px}
-.features-grid{grid-template-columns:repeat(2,1fr)}
-.how-steps{flex-direction:column}
-.pricing-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}
-.pricing-card.featured{transform:none}
-.pricing-card.featured:hover{transform:translateY(-6px)}
-.testimonials-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto}
-.stats-grid{grid-template-columns:repeat(2,1fr)}
-.footer-grid{grid-template-columns:repeat(2,1fr)}
-.section{padding:80px 0}
-.section-heading h2{font-size:36px}
-.cta h2{font-size:36px}
-.showcase-widgets .showcase-widget{display:none}
-}
-@media(max-width:768px){
-.container{padding:0 24px}
-.hero h1{font-size:36px}
-.hero{padding:80px 0}
-.section{padding:60px 0}
-.section-heading h2{font-size:30px}
-.features-grid{grid-template-columns:1fr}
-.stats-grid{grid-template-columns:repeat(2,1fr)}
-.footer-grid{grid-template-columns:1fr;gap:32px}
-.nav-links.open{padding:24px}
-.cta h2{font-size:30px}
-.cta-buttons{flex-direction:column}
-.hero-buttons{flex-direction:column;align-items:center}
-.stat-card .stat-number{font-size:34px}
-.footer-bottom{flex-direction:column;gap:12px;text-align:center}
-.companies-grid{gap:40px}
-.showcase-widgets .showcase-widget{display:none}
-}
-@media(max-width:480px){
-.container{padding:0 20px}
-.hero h1{font-size:30px}
-.section-heading h2{font-size:26px}
-.btn-lg{padding:14px 28px;font-size:16px}
-}
-</style>
+    /* ===== JOIN/REGISTER ===== */
+    .join-benefits {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      max-width: 500px;
+      margin: 0 auto 32px;
+      text-align: left;
+    }
+    .join-benefit {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .join-benefit .icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+    }
+    .join-benefit span {
+      font-size: 14px;
+      color: rgba(249,250,251,.6);
+      line-height: 1.5;
+    }
+    .join-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .join-card-btn {
+      padding: 28px;
+      border-radius: var(--radius-md);
+      text-align: left;
+      cursor: pointer;
+      transition: border-color var(--transition);
+      background: var(--glass);
+      border: 1px solid var(--border);
+    }
+    .join-card-btn:hover {
+      border-color: rgba(255,255,255,.2);
+    }
+    .join-card-btn .jc-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .join-card-btn h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .join-card-btn p {
+      font-size: 14px;
+      color: rgba(249,250,251,.4);
+      line-height: 1.5;
+      margin-bottom: 20px;
+    }
+    .join-card-btn .jc-link {
+      font-size: 14px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: gap var(--transition);
+    }
+    .join-card-btn:hover .jc-link { gap: 10px; }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--bg);
+      overflow: hidden;
+      position: relative;
+    }
+    .footer-bg-text {
+      padding: 80px 24px;
+    }
+    .footer-bg-text h2 {
+      font-size: clamp(32px, 10vw, 120px);
+      font-weight: 700;
+      color: rgba(249,250,251,.06);
+      line-height: .95;
+      letter-spacing: -2px;
+      user-select: none;
+    }
+    .footer-bg-text h2 .lime { color: rgba(223,255,0,.08); }
+    .footer-bar {
+      border-top: 1px solid rgba(255,255,255,.05);
+      padding: 32px 24px;
+    }
+    .footer-bar-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+    .footer-links a {
+      font-size: 14px;
+      color: rgba(249,250,251,.4);
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--lime); }
+    .footer-tagline {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 14px;
+      color: rgba(249,250,251,.3);
+    }
+    .footer-tagline .heart { color: var(--pink); }
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(249,250,251,.2);
+    }
+
+    /* ===== ANIMATIONS ===== */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .slide-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .slide-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .slide-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .slide-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .about-grid { flex-direction: column; }
+      .about-image { width: 100%; }
+      .about-image img { height: 360px; }
+      .forge-grid { grid-template-columns: 1fr; gap: 40px; }
+      .forge-image-wrap img { height: 360px; }
+      .join-cards { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 260px;
+        height: 100vh;
+        background: rgba(8,8,10,.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        justify-content: center;
+        padding: 40px;
+        gap: 24px;
+        transition: right .4s ease;
+        border-left: 1px solid var(--border);
+      }
+      .nav-links.open { right: 0; }
+      .hamburger { display: flex; }
+
+      .hero { padding: 100px 0 60px; }
+      .hero h1 { font-size: 38px; }
+      .hero p { font-size: 16px; }
+
+      section { padding: 80px 0; }
+      .section-title { font-size: 30px; }
+      .section-desc { font-size: 16px; }
+
+      .pillars-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .join-cards { grid-template-columns: 1fr; }
+      .join-benefits { grid-template-columns: 1fr; }
+      .map-card { padding: 24px; }
+
+      .footer-links { flex-wrap: wrap; gap: 16px; }
+      .footer-bar-inner { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      .hero-btns { flex-direction: column; }
+      .iam-input-wrap { flex-direction: column; align-items: stretch; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- ========== SECTION 1: Announcement Bar ========== -->
-<div class="announcement-bar" role="banner" aria-label="Announcement">
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
   <div class="container">
-    <span class="dot" aria-hidden="true"></span>
-    <p>Introducing the future of AI-powered business.</p>
-    <a href="#" aria-label="Learn more about our announcement">Learn More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-  </div>
-</div>
-
-<!-- ========== SECTION 2: Navigation ========== -->
-<nav role="navigation" aria-label="Main navigation">
-  <div class="container">
-    <a href="#" class="nav-logo" aria-label="NovaAI Home">
-      <svg viewBox="0 0 32 32" fill="none"><path d="M16 2L6 12l4 4 6-6 6 6 4-4L16 2z" fill="#7C3AED"/><path d="M16 12l-6 6 6 6 6-6-6-6z" fill="#06B6D4"/><path d="M16 22l-6 6h12l-6-6z" fill="#7C3AED" opacity=".6"/></svg>
-      NovaAI
-    </a>
-    <div class="nav-links" id="navLinks">
-      <a href="#features">Features</a>
-      <a href="#solutions">Solutions</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#testimonials">Testimonials</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <div class="nav-buttons">
-      <button class="btn btn-outline" onclick="alert('Login page')">Login</button>
-      <button class="btn btn-primary" onclick="alert('Get Started')">Get Started</button>
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+    <div class="nav-inner">
+      <div class="logo">Radiant<span>Frontier</span></div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
+      <nav class="nav-links" id="navLinks">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#sessions">Sessions</a>
+        <a href="#agenda">Agenda</a>
+        <a href="#register" class="btn-nav">Get Involved</a>
+      </nav>
     </div>
   </div>
-</nav>
+</header>
 
-<!-- ========== SECTION 3: Hero ========== -->
-<section class="hero" aria-label="Hero section">
-  <div class="hero-bg-glow" aria-hidden="true"></div>
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg-glow"></div>
   <div class="container">
-    <div class="hero-left">
-      <div class="hero-eyebrow"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg> AI Platform v3.0</div>
-      <h1>Transform Data Into<br><span class="gradient-text">Intelligent Actions</span></h1>
-      <p>Empower your business with real-time AI analytics, automated workflows, and predictive insights — all in one unified platform.</p>
-      <div class="hero-buttons">
-        <button class="btn btn-primary btn-lg">Start Free Trial</button>
-        <button class="btn btn-secondary btn-lg"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/></svg> Watch Demo</button>
+    <div class="hero-content fade-up">
+      <div class="hero-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        October 11, 2026
       </div>
-      <div class="hero-trust">
-        <div class="hero-trust-avatars">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='20' fill='%237C3AED'/%3E%3Ctext x='20' y='26' text-anchor='middle' fill='white' font-size='16' font-weight='700'%3ES%3C/text%3E%3C/svg%3E" alt="User avatar" loading="lazy">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='20' fill='%2306B6D4'/%3E%3Ctext x='20' y='26' text-anchor='middle' fill='white' font-size='16' font-weight='700'%3EJ%3C/text%3E%3C/svg%3E" alt="User avatar" loading="lazy">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='20' fill='%2322c55e'/%3E%3Ctext x='20' y='26' text-anchor='middle' fill='white' font-size='16' font-weight='700'%3EM%3C/text%3E%3C/svg%3E" alt="User avatar" loading="lazy">
-          <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='20' fill='%23f59e0b'/%3E%3Ctext x='20' y='26' text-anchor='middle' fill='white' font-size='16' font-weight='700'%3EK%3C/text%3E%3C/svg%3E" alt="User avatar" loading="lazy">
-        </div>
-        <p>Trusted by <strong>4,000+</strong> teams worldwide</p>
+      <h1>Own Your<br><span class="lime">Future</span></h1>
+      <p>A digital launchpad for the 2026 International Day of the Girl Child, empowering girls to own their future through purpose, technology, and innovation.</p>
+      <div class="hero-btns">
+        <a href="#register" class="btn-primary">Join the Celebration</a>
+        <a href="#about" class="btn-secondary">Learn More</a>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="dashboard-mockup">
-        <div class="dashboard-main">
-          <div class="dashboard-header">
-            <div class="dashboard-dots"><span></span><span></span><span></span></div>
-            <div class="dashboard-header-right">
-              <span style="font-size:12px;color:#CBD5E1">AI Analytics</span>
-              <div class="dashboard-avatar"></div>
-            </div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section class="about" id="about">
+  <div class="section-border section-border-purple"></div>
+  <div class="glow-purple" style="position:absolute;top:20%;right:-10%;width:500px;height:500px;border-radius:50%;pointer-events:none;"></div>
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-image slide-left">
+        <img src="https://media.base44.com/images/public/6a46b7de99d9700eef13904d/1c8edf903_generated_6706aef7.png" alt="Two young girls collaborating intensely on a tech project, bathed in lime green and violet neon lighting" loading="lazy">
+      </div>
+      <div class="about-content slide-right">
+        <span class="section-label">About Radiant Frontier</span>
+        <h2 class="section-title">A Digital Launchpad for<br><span class="text-glow-lime">Girls' Empowerment</span></h2>
+        <p class="section-desc">Radiant Frontier is a purpose-driven initiative building a digital launchpad for the 2026 International Day of the Girl Child. We equip girls aged 10-18 with the skills, confidence, and community they need to own their future through purpose, technology, and innovation.</p>
+        <div class="about-stats">
+          <div class="about-stat">
+            <div class="num">10+</div>
+            <div class="label">Countries Participating</div>
           </div>
-          <div class="dashboard-grid">
-            <div class="dashboard-card">
-              <div class="label">Total Revenue</div>
-              <div class="value">$284,500</div>
-              <div class="change"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 15l-6-6-6 6"/></svg> +12.5%</div>
-            </div>
-            <div class="dashboard-card">
-              <div class="label">Active Users</div>
-              <div class="value">12,847</div>
-              <div class="change"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M18 15l-6-6-6 6"/></svg> +8.2%</div>
-            </div>
+          <div class="about-stat">
+            <div class="num">1K+</div>
+            <div class="label">Girls Expected</div>
           </div>
-          <div class="dashboard-bottom">
-            <div class="dashboard-progress">
-              <div class="dashboard-progress-row"><span>Monthly Growth</span><span>72%</span></div>
-              <div class="bar-track"><div class="bar-fill"></div></div>
-              <div class="dashboard-progress-row" style="margin-top:12px"><span>Conversion Rate</span><span>45%</span></div>
-              <div class="bar-track"><div class="bar-fill" style="width:45%"></div></div>
-            </div>
-            <div class="dashboard-notification">
-              <div class="notif-dot"></div>
-              <div class="notif-text"><strong>AI Alert:</strong> Revenue spike detected</div>
-              <div class="notif-time">2m ago</div>
-            </div>
+          <div class="about-stat">
+            <div class="num">4</div>
+            <div class="label">Core Pillars</div>
           </div>
-        </div>
-        <div class="floating-card floating-card-1">
-          <div class="fc-icon" style="background:rgba(124,58,237,.2);color:#7C3AED"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg></div>
-          <div class="fc-info"><div class="fc-label">Revenue Growth</div><div class="fc-value">+32.4%</div></div>
-        </div>
-        <div class="floating-card floating-card-2">
-          <div class="fc-icon" style="background:rgba(6,182,212,.2);color:#06B6D4"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-          <div class="fc-info"><div class="fc-label">New Users</div><div class="fc-value">+2,847</div></div>
-        </div>
-        <div class="floating-card floating-card-3">
-          <div class="fc-icon" style="background:rgba(34,197,94,.2);color:#22c55e"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-          <div class="fc-info"><div class="fc-label">AI Predictions</div><div class="fc-value">94.7%</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SECTION 4: Trusted Companies ========== -->
-<section class="companies" aria-label="Trusted companies">
-  <div class="container">
-    <p>Trusted by leading companies worldwide</p>
-    <div class="companies-grid">
-      <div class="company-logo"><svg viewBox="0 0 120 32" fill="#CBD5E1"><rect x="0" y="8" width="28" height="18" rx="4" opacity=".3"/><rect x="4" y="12" width="20" height="10" rx="2" opacity=".5"/><text x="14" y="20" text-anchor="middle" font-size="6" font-weight="700" fill="#CBD5E1">V</text><text x="33" y="22" font-size="16" font-weight="700">Vercel</text></svg></div>
-      <div class="company-logo"><svg viewBox="0 0 120 32" fill="#CBD5E1"><circle cx="14" cy="16" r="12" opacity=".3"/><circle cx="14" cy="16" r="6" opacity=".6"/><text x="33" y="22" font-size="16" font-weight="700">Linear</text></svg></div>
-      <div class="company-logo"><svg viewBox="0 0 120 32" fill="#CBD5E1"><rect x="0" y="4" width="24" height="24" rx="6" opacity=".3"/><text x="12" y="20" text-anchor="middle" font-size="10" font-weight="800">S</text><text x="30" y="22" font-size="16" font-weight="700">Stripe</text></svg></div>
-      <div class="company-logo"><svg viewBox="0 0 120 32" fill="#CBD5E1"><path d="M6 26L14 6l8 20H6z" opacity=".3"/><path d="M14 10l4 12h-8l4-12z" opacity=".5"/><text x="28" y="22" font-size="16" font-weight="700">Notion</text></svg></div>
-      <div class="company-logo"><svg viewBox="0 0 120 32" fill="#CBD5E1"><rect x="0" y="2" width="26" height="28" rx="4" opacity=".3"/><rect x="3" y="5" width="20" height="22" rx="2" opacity=".5"/><text x="13" y="20" text-anchor="middle" font-size="8" font-weight="800">F</text><text x="32" y="22" font-size="16" font-weight="700">Figma</text></svg></div>
-      <div class="company-logo"><svg viewBox="0 0 120 32" fill="#CBD5E1"><circle cx="14" cy="16" r="10" opacity=".3"/><circle cx="14" cy="16" r="4" opacity=".6"/><text x="30" y="22" font-size="16" font-weight="700">Supabase</text></svg></div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SECTION 5: Features ========== -->
-<section class="section" id="features" aria-label="Features">
-  <div class="container">
-    <div class="section-heading fade-up">
-      <h2>Everything You Need to <span class="gradient-text">Scale Faster</span></h2>
-      <p>Powerful AI-driven tools designed to automate workflows, uncover insights, and drive growth across your entire organization.</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-card fade-up">
-        <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10M18 20V4M6 20v-4"/></svg></div>
-        <h3>AI Analytics</h3>
-        <p>Real-time data analysis with machine learning algorithms that adapt to your business patterns and predict trends.</p>
-      </div>
-      <div class="feature-card fade-up">
-        <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
-        <h3>Smart Automation</h3>
-        <p>Automate repetitive tasks with intelligent workflows that learn from your team's processes and optimize over time.</p>
-      </div>
-      <div class="feature-card fade-up">
-        <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-        <h3>Enterprise Security</h3>
-        <p>Bank-grade encryption, SOC 2 compliance, and granular access controls to keep your data safe at all times.</p>
-      </div>
-      <div class="feature-card fade-up">
-        <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
-        <h3>Team Collaboration</h3>
-        <p>Real-time collaboration with shared dashboards, comments, and notifications that keep everyone aligned.</p>
-      </div>
-      <div class="feature-card fade-up">
-        <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-        <h5 style="display:none">Financial</h5>
-        <h3>Revenue Intelligence</h3>
-        <p>Deep financial insights with predictive revenue modeling, churn analysis, and growth opportunity detection.</p>
-      </div>
-      <div class="feature-card fade-up">
-        <div class="feature-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-        <h3>Real-Time Monitoring</h3>
-        <p>24/7 monitoring with intelligent alerts that notify you of anomalies before they impact your business.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SECTION 6: How It Works ========== -->
-<section class="section" id="solutions" aria-label="How it works" style="background:rgba(124,58,237,.02)">
-  <div class="container">
-    <div class="section-heading fade-up">
-      <h2>From Setup to Scale in <span class="gradient-text">Three Steps</span></h2>
-      <p>Get started in minutes, not months. Our streamlined onboarding process gets your team up and running fast.</p>
-    </div>
-    <div class="how-steps">
-      <div class="how-step fade-up">
-        <div class="step-number">01</div>
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M24 4L4 14v20l20 10 20-10V14L24 4z"/><path d="M4 14l20 10 20-10"/><path d="M24 44V24"/><path d="M14 9l20 10"/></svg>
-        <h3>Connect Your Data</h3>
-        <p>Seamlessly integrate with 200+ data sources including databases, APIs, cloud services, and spreadsheets.</p>
-      </div>
-      <div class="how-step fade-up">
-        <div class="step-number">02</div>
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="20"/><path d="M24 14v10l8 4"/><path d="M14 24h20"/></svg>
-        <h3>Automate Workflows</h3>
-        <p>Configure intelligent automation rules, set up real-time alerts, and create custom reporting dashboards.</p>
-      </div>
-      <div class="how-step fade-up">
-        <div class="step-number">03</div>
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 34l12-12 8 8 16-16"/><path d="M38 18h8v8"/></svg>
-        <h3>Scale With Confidence</h3>
-        <p>Deploy across your organization with enterprise-grade security, role-based access, and dedicated support.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SECTION 7: Product Showcase ========== -->
-<section class="section showcase" id="showcase" aria-label="Product showcase">
-  <div class="container">
-    <div class="section-heading fade-up">
-      <h2>See Your Business <span class="gradient-text">Come Alive</span></h2>
-      <p>Beautiful, real-time dashboards that give you complete visibility into every aspect of your operations.</p>
-    </div>
-    <div class="showcase-mockup">
-      <div class="laptop-frame">
-        <div class="laptop-screen">
-          <svg width="100%" height="100%" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" style="background:#0B1020"><defs><linearGradient id="sg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="rgba(124,58,237,.1)"/><stop offset="100%" stop-color="rgba(6,182,212,.05)"/></linearGradient></defs><rect width="800" height="500" fill="url(#sg)"/>
-            <rect x="30" y="20" width="740" height="50" rx="8" fill="rgba(255,255,255,.04)"/>
-            <rect x="50" y="32" width="120" height="26" rx="6" fill="rgba(255,255,255,.08)"/>
-            <rect x="620" y="32" width="80" height="26" rx="6" fill="rgba(124,58,237,.3)"/>
-            <rect x="30" y="90" width="370" height="180" rx="12" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-            <rect x="50" y="110" width="80" height="16" rx="4" fill="rgba(255,255,255,.08)"/>
-            <rect x="50" y="136" width="160" height="28" rx="4" fill="rgba(255,255,255,.06)"/>
-            <rect x="50" y="178" width="330" height="8" rx="4" fill="rgba(255,255,255,.06)"/><rect x="50" y="195" width="270" height="8" rx="4" fill="rgba(124,58,237,.4)"/><rect x="50" y="212" width="300" height="8" rx="4" fill="rgba(255,255,255,.06)"/><rect x="50" y="229" width="200" height="8" rx="4" fill="rgba(6,182,212,.3)"/>
-            <rect x="50" y="250" width="120" height="10" rx="4" fill="rgba(255,255,255,.05)"/>
-            <rect x="420" y="90" width="350" height="180" rx="12" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-            <circle cx="470" cy="150" r="25" fill="rgba(124,58,237,.2)"/><circle cx="470" cy="150" r="12" fill="rgba(124,58,237,.4)"/>
-            <rect x="510" y="130" width="80" height="12" rx="4" fill="rgba(255,255,255,.08)"/>
-            <rect x="510" y="150" width="120" height="24" rx="4" fill="rgba(255,255,255,.06)"/>
-            <rect x="440" y="190" width="310" height="8" rx="4" fill="rgba(255,255,255,.06)"/><rect x="440" y="207" width="240" height="8" rx="4" fill="rgba(124,58,237,.4)"/><rect x="440" y="224" width="280" height="8" rx="4" fill="rgba(255,255,255,.06)"/><rect x="440" y="241" width="190" height="8" rx="4" fill="rgba(6,182,212,.3)"/>
-            <rect x="30" y="290" width="740" height="120" rx="12" fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
-            <rect x="50" y="310" width="160" height="14" rx="4" fill="rgba(255,255,255,.08)"/>
-            <rect x="50" y="340" width="210" height="48" rx="8" fill="rgba(255,255,255,.04)"/><rect x="65" y="350" width="60" height="16" rx="4" fill="rgba(124,58,237,.3)"/><rect x="65" y="370" width="40" height="8" rx="4" fill="rgba(255,255,255,.06)"/>
-            <rect x="280" y="340" width="210" height="48" rx="8" fill="rgba(255,255,255,.04)"/><rect x="295" y="350" width="60" height="16" rx="4" fill="rgba(6,182,212,.3)"/><rect x="295" y="370" width="40" height="8" rx="4" fill="rgba(255,255,255,.06)"/>
-            <rect x="510" y="340" width="210" height="48" rx="8" fill="rgba(255,255,255,.04)"/><rect x="525" y="350" width="60" height="16" rx="4" fill="rgba(34,197,94,.3)"/><rect x="525" y="370" width="40" height="8" rx="4" fill="rgba(255,255,255,.06)"/>
-            <rect x="30" y="430" width="740" height="50" rx="8" fill="rgba(255,255,255,.03)"/>
-            <rect x="50" y="445" width="100" height="20" rx="4" fill="rgba(255,255,255,.06)"/>
-            <rect x="600" y="445" width="30" height="20" rx="4" fill="rgba(124,58,237,.3)"/><rect x="640" y="445" width="30" height="20" rx="4" fill="rgba(255,255,255,.06)"/><rect x="680" y="445" width="30" height="20" rx="4" fill="rgba(255,255,255,.06)"/><rect x="720" y="445" width="30" height="20" rx="4" fill="rgba(255,255,255,.06)"/>
-          </svg>
-        </div>
-      </div>
-      <div class="laptop-base"></div>
-      <div class="showcase-widgets">
-        <div class="showcase-widget sw-1">
-          <div class="sw-icon" style="background:rgba(124,58,237,.2);color:#7C3AED"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20V10M18 20V4M6 20v-4"/></svg></div>
-          <div class="sw-info"><div class="sw-value">$284.5K</div><div class="sw-label">Total Revenue</div></div>
-        </div>
-        <div class="showcase-widget sw-2">
-          <div class="sw-icon" style="background:rgba(6,182,212,.2);color:#06B6D4"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
-          <div class="sw-info"><div class="sw-value">98.2%</div><div class="sw-label">Uptime</div></div>
-        </div>
-        <div class="showcase-widget sw-3">
-          <div class="sw-icon" style="background:rgba(34,197,94,.2);color:#22c55e"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-          <div class="sw-info"><div class="sw-value">1,247</div><div class="sw-label">Tasks Done</div></div>
-        </div>
-        <div class="showcase-widget sw-4">
-          <div class="sw-icon" style="background:rgba(245,158,11,.2);color:#f59e0b"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 01-3.46 0"/></svg></div>
-          <div class="sw-info"><div class="sw-value">12</div><div class="sw-label">New Alerts</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SECTION 8: Statistics ========== -->
-<section class="section" aria-label="Statistics">
-  <div class="container">
-    <div class="section-heading fade-up">
-      <h2>Our Impact in <span class="gradient-text">Numbers</span></h2>
-      <p>Join thousands of companies that trust NovaAI to power their business intelligence.</p>
-    </div>
-    <div class="stats-grid">
-      <div class="stat-card fade-up">
-        <div class="stat-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
-        <div class="stat-number"><span class="counter" data-target="284">0</span>M+</div>
-        <div class="stat-label">Revenue Generated</div>
-      </div>
-      <div class="stat-card fade-up">
-        <div class="stat-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg></div>
-        <div class="stat-number"><span class="counter" data-target="4000">0</span>+</div>
-        <div class="stat-label">Customers Worldwide</div>
-      </div>
-      <div class="stat-card fade-up">
-        <div class="stat-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg></div>
-        <div class="stat-number"><span class="counter" data-target="12000">0</span>+</div>
-        <div class="stat-label">Projects Completed</div>
-      </div>
-      <div class="stat-card fade-up">
-        <div class="stat-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg></div>
-        <div class="stat-number"><span class="counter" data-target="45">0</span>+</div>
-        <div class="stat-label">Countries Served</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SECTION 9: Testimonials ========== -->
-<section class="section" id="testimonials" aria-label="Testimonials" style="background:rgba(124,58,237,.02)">
-  <div class="container">
-    <div class="section-heading fade-up">
-      <h2>Loved by Teams <span class="gradient-text">Worldwide</span></h2>
-      <p>See what our customers have to say about how NovaAI transformed their business operations.</p>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card fade-up">
-        <div class="testimonial-stars">
-          <svg viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <p class="testimonial-quote">"NovaAI completely transformed how we analyze our data. The AI insights saved us countless hours and we've seen a 40% increase in operational efficiency."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='24' fill='%237C3AED'/%3E%3Ctext x='24' y='30' text-anchor='middle' fill='white' font-size='18' font-weight='700'%3ES%3C/text%3E%3C/svg%3E" alt="Sarah Chen" loading="lazy"></div>
-          <div><div class="testimonial-name">Sarah Chen</div><div class="testimonial-role">CEO, TechFlow Inc.</div></div>
-        </div>
-      </div>
-      <div class="testimonial-card fade-up">
-        <div class="testimonial-stars">
-          <svg viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <p class="testimonial-quote">"The AI-powered automation has been a game-changer for our support team. We've cut response times by 60% and our customer satisfaction scores are at an all-time high."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='24' fill='%2306B6D4'/%3E%3Ctext x='24' y='30' text-anchor='middle' fill='white' font-size='18' font-weight='700'%3EM%3C/text%3E%3C/svg%3E" alt="Marcus Johnson" loading="lazy"></div>
-          <div><div class="testimonial-name">Marcus Johnson</div><div class="testimonial-role">CTO, DataPulse</div></div>
-        </div>
-      </div>
-      <div class="testimonial-card fade-up">
-        <div class="testimonial-stars">
-          <svg viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-          <svg viewBox="0 0 24 24" fill="#f59e0b" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-        </div>
-        <p class="testimonial-quote">"We evaluated every analytics platform on the market. NovaAI was the clear winner — superior AI capabilities, better UX, and more affordable. Highly recommended."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='24' fill='%2322c55e'/%3E%3Ctext x='24' y='30' text-anchor='middle' fill='white' font-size='18' font-weight='700'%3EE%3C/text%3E%3C/svg%3E" alt="Elena Rodriguez" loading="lazy"></div>
-          <div><div class="testimonial-name">Elena Rodriguez</div><div class="testimonial-role">VP Product, CloudBase</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SECTION 10: Pricing ========== -->
-<section class="section" id="pricing" aria-label="Pricing">
-  <div class="container">
-    <div class="section-heading fade-up">
-      <h2>Simple Pricing. <span class="gradient-text">No Surprises.</span></h2>
-      <p>Choose the plan that fits your needs. All plans include a 14-day free trial with no credit card required.</p>
-    </div>
-    <div class="pricing-grid">
-      <div class="pricing-card fade-up">
-        <div class="pricing-name">Starter</div>
-        <div class="pricing-desc">Perfect for small teams getting started</div>
-        <div class="pricing-price">$29<span>/mo</span></div>
-        <div class="pricing-period">Billed monthly</div>
-        <div class="pricing-features">
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Up to 5 users</div>
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 10 GB storage</div>
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Basic analytics</div>
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Email support</div>
-        </div>
-        <button class="btn btn-secondary">Start Free Trial</button>
-      </div>
-      <div class="pricing-card featured fade-up">
-        <div class="pricing-badge">Most Popular</div>
-        <div class="pricing-name">Professional</div>
-        <div class="pricing-desc">For growing teams that need more power</div>
-        <div class="pricing-price">$79<span>/mo</span></div>
-        <div class="pricing-period">Billed monthly</div>
-        <div class="pricing-features">
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Up to 25 users</div>
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 100 GB storage</div>
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> AI-powered insights</div>
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Priority support</div>
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Custom integrations</div>
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Advanced security</div>
-        </div>
-        <button class="btn btn-primary">Start Free Trial</button>
-      </div>
-      <div class="pricing-card fade-up">
-        <div class="pricing-name">Enterprise</div>
-        <div class="pricing-desc">For large organizations with complex needs</div>
-        <div class="pricing-price">$199<span>/mo</span></div>
-        <div class="pricing-period">Billed monthly</div>
-        <div class="pricing-features">
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Unlimited users</div>
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 1 TB storage</div>
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Full AI suite</div>
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dedicated support</div>
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> On-premise option</div>
-          <div class="pricing-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> White-labeling</div>
-        </div>
-        <button class="btn btn-secondary">Contact Sales</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SECTION 11: FAQ ========== -->
-<section class="section" aria-label="Frequently asked questions" style="background:rgba(124,58,237,.02)">
-  <div class="container">
-    <div class="section-heading fade-up">
-      <h2>Frequently Asked <span class="gradient-text">Questions</span></h2>
-      <p>Everything you need to know about NovaAI. Can't find what you're looking for? Contact our support team.</p>
-    </div>
-    <div class="faq-list">
-      <div class="faq-item active">
-        <button class="faq-question" aria-expanded="true">What is NovaAI and how does it work?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer">NovaAI is an AI-powered business intelligence platform that connects to your data sources, analyzes patterns using machine learning, and provides actionable insights and automations. Simply connect your data, choose your workflows, and let our AI do the heavy lifting.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">How does the free trial work?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer">Every plan comes with a 14-day free trial with full access to all features. No credit card is required to start. You can upgrade, downgrade, or cancel at any time during the trial period.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">What data sources do you support?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer">We support 200+ data sources including PostgreSQL, MySQL, MongoDB, Snowflake, BigQuery, Salesforce, HubSpot, Google Analytics, Stripe, Shopify, REST APIs, and CSV uploads.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">Is my data secure with NovaAI?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer">Absolutely. We use AES-256 encryption at rest and TLS 1.3 in transit. We are SOC 2 Type II certified, GDPR compliant, and offer SSO, MFA, and granular role-based access controls.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">Can I cancel my subscription anytime?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer">Yes, you can cancel your subscription at any time. Your data will remain accessible for the remainder of your billing period, and you can export your data at any time.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">Do you offer discounts for non-profits?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer">Yes, we offer a 50% discount for verified non-profit organizations and educational institutions. Contact our sales team to apply for the non-profit program.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">How does AI training work with my data?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer">Our AI models are trained per-tenant, meaning your data is never used to train models for other customers. You have full control over data retention and model training preferences in your settings.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">What kind of support do you offer?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></button>
-        <div class="faq-answer">Starter plans include email support with 24-hour response times. Professional plans get priority chat and email support. Enterprise plans include a dedicated account manager, phone support, and 24/7 priority response.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SECTION 12: Call To Action ========== -->
-<section class="section cta" aria-label="Call to action">
-  <div class="cta-bg"></div>
-  <div class="cta-glow" aria-hidden="true"></div>
-  <div class="container">
-    <h2>Ready to Transform Your<br><span class="gradient-text">Business Intelligence?</span></h2>
-    <p>Join 4,000+ forward-thinking companies already using NovaAI to make smarter, faster decisions.</p>
-    <div class="cta-buttons">
-      <button class="btn btn-primary btn-lg">Start Free Trial</button>
-      <button class="btn btn-secondary btn-lg">Book a Demo</button>
-    </div>
-  </div>
-</section>
-
-<!-- ========== SECTION 13: Footer ========== -->
-<footer id="contact" aria-label="Footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <a href="#" class="nav-logo" aria-label="NovaAI Home">
-          <svg viewBox="0 0 32 32" fill="none"><path d="M16 2L6 12l4 4 6-6 6 6 4-4L16 2z" fill="#7C3AED"/><path d="M16 12l-6 6 6 6 6-6-6-6z" fill="#06B6D4"/><path d="M16 22l-6 6h12l-6-6z" fill="#7C3AED" opacity=".6"/></svg>
-          NovaAI
-        </a>
-        <p>Empowering businesses with AI-driven intelligence. Transform your data into actionable insights and automate your success.</p>
-        <div class="footer-social">
-          <a href="#" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
-          <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg></a>
-          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Product</h4>
-        <a href="#features">Features</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#">Integrations</a>
-        <a href="#">Changelog</a>
-        <a href="#">API Docs</a>
-      </div>
-      <div class="footer-col">
-        <h4>Resources</h4>
-        <a href="#">Documentation</a>
-        <a href="#">Blog</a>
-        <a href="#">Tutorials</a>
-        <a href="#">Webinars</a>
-        <a href="#">Community</a>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Cookie Policy</a>
-        <a href="#">GDPR</a>
-        <a href="#">Security</a>
-        <div style="margin-top:20px">
-          <h4 style="margin-bottom:12px">Newsletter</h4>
-          <div class="footer-newsletter">
-            <p>Get the latest AI insights and product updates.</p>
-            <form class="newsletter-form" onsubmit="event.preventDefault();alert('Subscribed!')">
-              <input type="email" placeholder="Enter your email" required aria-label="Email for newsletter">
-              <button type="submit">Subscribe</button>
-            </form>
+          <div class="about-stat">
+            <div class="num">1</div>
+            <div class="label">Global Movement</div>
           </div>
         </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2026 NovaAI. All rights reserved.</p>
-      <p>Powered by AI. Built with passion.</p>
+  </div>
+</section>
+
+<!-- ===== FOUR PILLARS (Sessions) ===== -->
+<section id="sessions">
+  <div class="section-border section-border-lime"></div>
+  <div class="glow-lime" style="position:absolute;bottom:30%;right:-5%;width:400px;height:400px;border-radius:50%;pointer-events:none;"></div>
+  <div class="container">
+    <div class="text-center fade-up" style="margin-bottom:64px;">
+      <span class="section-label">The Curriculum</span>
+      <h2 class="section-title">Four Pillars of<br><span class="text-glow-purple">Empowerment</span></h2>
+    </div>
+    <div class="pillars-grid">
+      <div class="pillar-card fade-up" style="transition-delay:.12s;">
+        <div class="hover-glow" style="background:radial-gradient(circle at 30% 50%, rgba(157,80,187,.03), transparent 70%);"></div>
+        <div class="p-header">
+          <div class="p-icon" style="background:rgba(157,80,187,.08);"><span style="color:#9D50BB;">&#9733;</span></div>
+          <span class="p-num">Session 01</span>
+        </div>
+        <h3>Owning Your Future</h3>
+        <p class="p-sub" style="color:rgba(157,80,187,.8);">Becoming a Purpose-Driven Girl</p>
+        <div class="p-tags">
+          <span class="p-tag">Self-discovery</span>
+          <span class="p-tag">Goal setting</span>
+          <span class="p-tag">Confidence</span>
+        </div>
+        <a href="#" class="p-link" style="color:#9D50BB;">Explore Session &#8594;</a>
+      </div>
+
+      <div class="pillar-card fade-up" style="transition-delay:.24s;">
+        <div class="hover-glow" style="background:radial-gradient(circle at 30% 50%, rgba(0,212,255,.03), transparent 70%);"></div>
+        <div class="p-header">
+          <div class="p-icon" style="background:rgba(0,212,255,.08);"><span style="color:#00D4FF;">&#9881;</span></div>
+          <span class="p-num">Session 02</span>
+        </div>
+        <h3>Thriving in Technology</h3>
+        <p class="p-sub" style="color:rgba(0,212,255,.8);">Girls Leading the Digital Revolution</p>
+        <div class="p-tags">
+          <span class="p-tag">Emerging tech</span>
+          <span class="p-tag">STEM careers</span>
+          <span class="p-tag">Digital literacy</span>
+        </div>
+        <a href="#" class="p-link" style="color:#00D4FF;">Explore Session &#8594;</a>
+      </div>
+
+      <div class="pillar-card fade-up" style="transition-delay:.36s;">
+        <div class="hover-glow" style="background:radial-gradient(circle at 30% 50%, rgba(223,255,0,.03), transparent 70%);"></div>
+        <div class="p-header">
+          <div class="p-icon" style="background:rgba(223,255,0,.08);"><span style="color:#DFFF00;">&#128176;</span></div>
+          <span class="p-num">Session 03</span>
+        </div>
+        <h3>Building Your Business Online</h3>
+        <p class="p-sub" style="color:rgba(223,255,0,.8);">With Live Demonstrations</p>
+        <div class="p-tags">
+          <span class="p-tag">E-commerce</span>
+          <span class="p-tag">Social media</span>
+          <span class="p-tag">Digital branding</span>
+        </div>
+        <a href="#" class="p-link" style="color:#DFFF00;">Explore Session &#8594;</a>
+      </div>
+
+      <div class="pillar-card fade-up" style="transition-delay:.48s;">
+        <div class="hover-glow" style="background:radial-gradient(circle at 30% 50%, rgba(255,107,157,.03), transparent 70%);"></div>
+        <div class="p-header">
+          <div class="p-icon" style="background:rgba(255,107,157,.08);"><span style="color:#FF6B9D;">&#127912;</span></div>
+          <span class="p-num">Session 04</span>
+        </div>
+        <h3>AI & Content Creation</h3>
+        <p class="p-sub" style="color:rgba(255,107,157,.8);">Tools for Digital Creators</p>
+        <div class="p-tags">
+          <span class="p-tag">AI tools</span>
+          <span class="p-tag">Video creation</span>
+          <span class="p-tag">Content strategy</span>
+        </div>
+        <a href="#" class="p-link" style="color:#FF6B9D;">Explore Session &#8594;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INNOVATION FORGE ===== -->
+<section id="challenge">
+  <div class="section-border section-border-purple"></div>
+  <div class="glow-purple" style="position:absolute;top:20%;left:-5%;width:500px;height:500px;border-radius:50%;pointer-events:none;"></div>
+  <div class="container">
+    <div class="forge-grid">
+      <div class="forge-image-wrap slide-left">
+        <div style="border-radius:var(--radius-lg);overflow:hidden;position:relative;">
+          <img src="https://media.base44.com/images/public/6a46b7de99d9700eef13904d/1c8edf903_generated_6706aef7.png" alt="Two young girls collaborating on a tech project" loading="lazy">
+          <div class="img-overlay"></div>
+        </div>
+        <div class="forge-float-card glass-card">
+          <p>Girls Innovation Challenge</p>
+          <p>2:05 PM - 2:30 PM</p>
+        </div>
+      </div>
+      <div class="slide-right">
+        <span class="section-label" style="color:var(--purple);">The Challenge</span>
+        <h2 class="section-title">Innovation <span class="text-glow-lime">Forge</span></h2>
+        <p class="section-desc" style="margin-bottom:40px;">Work in teams to identify real-life challenges within your community and propose technology-driven solutions. Creativity, teamwork, problem-solving, and innovation — all in one powerful challenge.</p>
+        <div class="forge-list">
+          <div class="forge-list-item">
+            <div class="step-num"><span class="forge-num">01</span></div>
+            <div class="step-content">
+              <h3>Identify</h3>
+              <p>Discover real-life challenges in your community that need solutions</p>
+            </div>
+          </div>
+          <div class="forge-list-item">
+            <div class="step-num"><span class="forge-num">02</span></div>
+            <div class="step-content">
+              <h3>Prototype</h3>
+              <p>Design a technology-driven solution with your team using creative thinking</p>
+            </div>
+          </div>
+          <div class="forge-list-item">
+            <div class="step-num"><span class="forge-num">03</span></div>
+            <div class="step-content">
+              <h3>Pitch</h3>
+              <p>Present your innovation to judges and fellow participants</p>
+            </div>
+          </div>
+          <div class="forge-list-item">
+            <div class="step-num"><span class="forge-num">04</span></div>
+            <div class="step-content">
+              <h3>Win</h3>
+              <p>Compete for prizes and recognition as a young innovator</p>
+            </div>
+          </div>
+        </div>
+        <a href="#register" class="btn-lime">Join the Challenge &#8594;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EVENT AGENDA ===== -->
+<section id="agenda">
+  <div class="section-border section-border-lime"></div>
+  <div class="glow-lime" style="position:absolute;top:40%;right:-10%;width:500px;height:500px;border-radius:50%;pointer-events:none;"></div>
+  <div class="glow-purple" style="position:absolute;bottom:20%;left:-10%;width:400px;height:400px;border-radius:50%;pointer-events:none;"></div>
+  <div class="container">
+    <div class="text-center fade-up" style="margin-bottom:64px;">
+      <span class="section-label">The Schedule</span>
+      <h2 class="section-title">Event <span class="text-glow-purple">Agenda</span></h2>
+    </div>
+    <div class="agenda-wrap fade-up">
+      <div class="agenda-items">
+        <div class="agenda-line"></div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:rgba(255,255,255,.3);"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#F9FAFB;">10:00 AM - 10:15 AM</span>
+            <h3>Registration, Networking & Dream Wall</h3>
+            <p class="a-sub">"My Future, My Power"</p>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:rgba(255,255,255,.3);"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#F9FAFB;">10:15 AM - 10:25 AM</span>
+            <h3>Opening Prayer & Welcome Remarks</h3>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:rgba(255,255,255,.3);"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#F9FAFB;">10:25 AM - 10:45 AM</span>
+            <h3>Founder's Message</h3>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:#DFFF00;box-shadow:0 0 0 4px #08080A;"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#DFFF00;">10:45 AM - 10:55 AM</span>
+            <h3>Future Leaders Activation: "I AM"</h3>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:#9D50BB;box-shadow:0 0 0 4px #08080A;"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#9D50BB;">10:55 AM - 11:30 AM</span>
+            <h3 style="color:#9D50BB;">Owning Your Future</h3>
+            <p class="a-sub">Becoming a Purpose-Driven Girl</p>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:#00D4FF;box-shadow:0 0 0 4px #08080A;"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#00D4FF;">11:30 AM - 11:40 AM</span>
+            <h3>Interactive Quiz & Reflection</h3>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:#9D50BB;box-shadow:0 0 0 4px #08080A;"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#9D50BB;">11:40 AM - 12:15 PM</span>
+            <h3 style="color:#9D50BB;">Thriving as a Girl in Technology</h3>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:#00D4FF;box-shadow:0 0 0 4px #08080A;"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#00D4FF;">12:15 PM - 12:25 PM</span>
+            <h3>Interactive Quiz</h3>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:rgba(255,255,255,.2);"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#F9FAFB;">12:25 PM - 12:35 PM</span>
+            <h3>Short Break</h3>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:#DFFF00;box-shadow:0 0 0 4px #08080A;"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#DFFF00;">12:35 PM - 1:10 PM</span>
+            <h3 style="color:#DFFF00;">Building Your Business Online</h3>
+            <p class="a-sub">With Live Demonstrations</p>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:#00D4FF;box-shadow:0 0 0 4px #08080A;"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#00D4FF;">1:10 PM - 1:20 PM</span>
+            <h3>Interactive Quiz</h3>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:#FF6B9D;box-shadow:0 0 0 4px #08080A;"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#FF6B9D;">1:20 PM - 1:55 PM</span>
+            <h3 style="color:#FF6B9D;">AI & Content Creation for Creators</h3>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:#00D4FF;box-shadow:0 0 0 4px #08080A;"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#00D4FF;">1:55 PM - 2:05 PM</span>
+            <h3>Interactive Quiz</h3>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:#DFFF00;box-shadow:0 0 0 4px #08080A;"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#DFFF00;">2:05 PM - 2:25 PM</span>
+            <h3 style="color:#DFFF00;">Girls Innovation Challenge</h3>
+            <p class="a-sub">Identifying Problems & Designing Tech Solutions</p>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:#DFFF00;box-shadow:0 0 0 4px #08080A;"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#DFFF00;">2:25 PM - 2:30 PM</span>
+            <h3 style="color:#DFFF00;">Team Presentations & Prize Ceremony</h3>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:#FF6B9D;box-shadow:0 0 0 4px #08080A;"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#FF6B9D;">2:30 PM - 3:00 PM</span>
+            <h3>Global Watch Party</h3>
+            <p class="a-sub">International Girl Child Day Celebration</p>
+          </div>
+        </div>
+
+        <div class="agenda-item">
+          <div class="agenda-dot" style="background:rgba(255,255,255,.3);"></div>
+          <div class="agenda-body">
+            <span class="a-time" style="color:#F9FAFB;">3:00 PM</span>
+            <h3>Closing Remarks, Group Photo & Departure</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GLOBAL WATCH PARTY ===== -->
+<section id="global">
+  <div class="section-border section-border-purple"></div>
+  <div class="container">
+    <div class="text-center fade-up" style="margin-bottom:64px;">
+      <div class="hero-badge" style="display:inline-flex;border-color:rgba(255,107,157,.3);background:rgba(255,107,157,.05);margin-bottom:24px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF6B9D" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span style="color:#FF6B9D;">2:30 PM - 3:00 PM</span>
+      </div>
+      <h2 class="section-title">Global <span class="text-glow-lime">Watch Party</span></h2>
+      <p class="section-desc mx-auto">Connect with girls and youth organizations from across the world. Join the celebration, share your story, and be part of a global movement for change.</p>
+    </div>
+    <div class="glass-card map-card fade-up" style="margin-bottom:32px;">
+      <div style="position:relative;aspect-ratio:2/1;">
+        <svg viewBox="0 0 100 57" style="position:absolute;inset:0;width:100%;height:100%;opacity:.04;">
+          <path d="M20,15 C30,10 40,8 50,12 C60,16 70,14 80,18" stroke="#DFFF00" stroke-width="0.3" fill="none"/>
+          <path d="M25,25 C35,20 45,22 55,28 C65,34 75,30 85,35" stroke="#9D50BB" stroke-width="0.3" fill="none"/>
+          <path d="M15,35 C25,30 40,28 55,35 C70,42 80,38 90,42" stroke="#DFFF00" stroke-width="0.3" fill="none"/>
+        </svg>
+        <div class="map-grid" style="position:absolute;inset:0;opacity:.05;"></div>
+        <!-- City markers -->
+        <div class="map-marker" style="left:23%;top:35%;"><div class="pulse"></div><span>New York</span></div>
+        <div class="map-marker" style="left:47%;top:28%;"><div class="pulse"></div><span>London</span></div>
+        <div class="map-marker" style="left:47%;top:55%;"><div class="pulse"></div><span>Lagos</span></div>
+        <div class="map-marker" style="left:57%;top:55%;"><div class="pulse"></div><span>Nairobi</span></div>
+        <div class="map-marker" style="left:67%;top:42%;"><div class="pulse"></div><span>Mumbai</span></div>
+        <div class="map-marker" style="left:76%;top:55%;"><div class="pulse"></div><span>Singapore</span></div>
+        <div class="map-marker" style="left:83%;top:35%;"><div class="pulse"></div><span>Tokyo</span></div>
+        <div class="map-marker" style="left:30%;top:65%;"><div class="pulse"></div><span>Sao Paulo</span></div>
+        <div class="map-marker" style="left:85%;top:70%;"><div class="pulse"></div><span>Sydney</span></div>
+        <div class="map-marker" style="left:45%;top:52%;"><div class="pulse"></div><span>Accra</span></div>
+      </div>
+    </div>
+    <div class="fade-up" style="border-radius:var(--radius-lg);overflow:hidden;max-height:360px;">
+      <img src="https://media.base44.com/images/public/6a46b7de99d9700eef13904d/eace2e4ca_generated_a22c9cb1.png" alt="Young girl standing confidently in a futuristic tech hub, looking upward with vision and hope, bathed in violet and cyan light" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+    </div>
+  </div>
+</section>
+
+<!-- ===== I AM ACTIVATION ===== -->
+<section id="i-am">
+  <div class="section-border section-border-lime"></div>
+  <div class="glow-lime-center" style="position:absolute;top:50%;left:50%;width:600px;height:600px;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;"></div>
+  <div class="container">
+    <div class="text-center fade-up" style="max-width:720px;margin:0 auto 48px;">
+      <span class="section-label">Activate Your Power</span>
+      <h2 class="section-title">The "I AM" <span class="text-glow-purple">Activation</span></h2>
+      <p class="section-desc mx-auto">Declare who you are and who you're becoming. Type your empowerment statement and create a shareable card to inspire the world.</p>
+    </div>
+    <div class="glass-card iam-card fade-up" style="max-width:640px;margin:0 auto;">
+      <div style="margin-bottom:24px;">
+        <label style="font-size:14px;font-weight:500;color:rgba(249,250,251,.7);margin-bottom:12px;display:block;">Complete the statement:</label>
+        <div class="iam-input-wrap">
+          <span class="iam-prefix">I AM</span>
+          <input type="text" class="iam-input" id="iamInput" placeholder="a future tech leader..." maxlength="80">
+        </div>
+      </div>
+      <button class="btn-lime" id="generateCard" style="width:100%;justify-content:center;" disabled>
+        Generate My Card
+      </button>
+      <div id="cardPreview" style="display:none;margin-top:32px;">
+        <div id="cardContent" style="border-radius:var(--radius-md);overflow:hidden;padding:40px 48px;background:linear-gradient(135deg, #08080A 0%, #1a0a2e 40%, #08080A 100%);position:relative;">
+          <div style="position:absolute;top:16px;right:16px;width:80px;height:80px;border-radius:50%;background:rgba(223,255,0,.1);filter:blur(24px);"></div>
+          <div style="position:absolute;bottom:16px;left:16px;width:64px;height:64px;border-radius:50%;background:rgba(157,80,187,.15);filter:blur(16px);"></div>
+          <div style="position:relative;z-index:1;">
+            <p style="color:rgba(223,255,0,.6);font-size:11px;letter-spacing:.3em;text-transform:uppercase;margin-bottom:24px;">International Day of the Girl Child 2026</p>
+            <p id="cardText" style="font-size:36px;font-weight:700;color:var(--white);margin-bottom:32px;">I AM <span style="color:var(--lime);"></span></p>
+            <div style="display:flex;align-items:center;gap:12px;">
+              <div style="width:32px;height:1px;background:rgba(223,255,0,.4);"></div>
+              <p style="font-size:11px;color:rgba(249,250,251,.3);letter-spacing:.1em;text-transform:uppercase;">#OwnYourFuture</p>
+            </div>
+          </div>
+        </div>
+        <button id="downloadCard" style="margin-top:16px;width:100%;padding:12px;border-radius:var(--radius-sm);border:1px solid var(--border);background:transparent;color:rgba(249,250,251,.7);font-size:14px;cursor:pointer;font-family:inherit;transition:var(--transition);">&#8595; Download Card</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== BECOME A MENTOR ===== -->
+<section id="mentors">
+  <div class="section-border section-border-purple"></div>
+  <div class="glow-purple" style="position:absolute;top:30%;right:-10%;width:500px;height:500px;border-radius:50%;pointer-events:none;"></div>
+  <div class="glow-lime" style="position:absolute;bottom:10%;left:-10%;width:400px;height:400px;border-radius:50%;pointer-events:none;"></div>
+  <div class="container">
+    <div class="text-center fade-up" style="max-width:640px;margin:0 auto 48px;">
+      <div class="hero-badge" style="display:inline-flex;border-color:rgba(157,80,187,.3);background:rgba(157,80,187,.05);margin-bottom:24px;">
+        <span style="color:var(--purple);">Innovation Challenge</span>
+      </div>
+      <h2 class="section-title">Become a <span class="text-glow-lime">Mentor</span></h2>
+      <p class="section-desc mx-auto">Are you a tech professional who wants to guide the next generation of girl innovators? Sign up to mentor teams during the Girls Innovation Challenge and help shape their future.</p>
+    </div>
+    <div class="glass-card fade-up" style="max-width:640px;margin:0 auto;padding:32px 40px;">
+      <form id="mentorForm">
+        <div class="form-row" style="margin-bottom:20px;">
+          <div class="field">
+            <label>Full Name <span class="req">*</span></label>
+            <input type="text" placeholder="Jane Doe" required>
+          </div>
+          <div class="field">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" placeholder="jane@example.com" required>
+          </div>
+        </div>
+        <div class="form-row" style="margin-bottom:20px;">
+          <div class="field">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="+1 (555) 000-0000">
+          </div>
+          <div class="field">
+            <label>Organization / Company</label>
+            <input type="text" placeholder="Tech Corp Inc.">
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:20px;">
+          <label>Job Title</label>
+          <input type="text" placeholder="Senior Software Engineer">
+        </div>
+        <div class="form-row" style="margin-bottom:20px;">
+          <div class="field">
+            <label>Tech Domain <span class="req">*</span></label>
+            <select required>
+              <option value="" disabled selected style="background:#08080A;">Select your domain</option>
+              <option style="background:#08080A;">Artificial Intelligence</option>
+              <option style="background:#08080A;">Software Development</option>
+              <option style="background:#08080A;">Cybersecurity</option>
+              <option style="background:#08080A;">Entrepreneurship / Business</option>
+              <option style="background:#08080A;">Digital Marketing</option>
+              <option style="background:#08080A;">Data Science</option>
+              <option style="background:#08080A;">UI/UX Design</option>
+              <option style="background:#08080A;">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Years of Experience <span class="req">*</span></label>
+            <select required>
+              <option value="" disabled selected style="background:#08080A;">Select range</option>
+              <option style="background:#08080A;">1-3 years</option>
+              <option style="background:#08080A;">4-7 years</option>
+              <option style="background:#08080A;">8-12 years</option>
+              <option style="background:#08080A;">13+ years</option>
+            </select>
+          </div>
+        </div>
+        <div class="field" style="margin-bottom:20px;">
+          <label>LinkedIn Profile URL</label>
+          <input type="url" placeholder="https://linkedin.com/in/...">
+        </div>
+        <div class="field" style="margin-bottom:24px;">
+          <label>Why do you want to mentor? <span class="req">*</span></label>
+          <textarea rows="4" placeholder="Share what inspires you to mentor young girls in tech and innovation..." required></textarea>
+        </div>
+        <button type="submit" class="btn-lime" style="width:100%;justify-content:center;">Submit Mentor Application</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== JOIN THE 2026 CELEBRATION ===== -->
+<section id="register">
+  <div class="section-border section-border-lime"></div>
+  <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(157,80,187,.02), transparent, rgba(223,255,0,.02));pointer-events:none;"></div>
+  <div class="container">
+    <div class="glass-card fade-up" style="max-width:800px;margin:0 auto 40px;padding:40px 56px;text-align:center;">
+      <span class="section-label">Be Part of the Movement</span>
+      <h2 class="section-title">Join the <span class="text-glow-lime">2026 Celebration</span></h2>
+      <p style="font-size:18px;color:var(--muted);max-width:560px;margin:0 auto 32px;line-height:1.7;">Whether you're a girl ready to shine, a professional ready to give back, or an organization ready to invest in the future — there's a place for you.</p>
+      <div class="join-benefits">
+        <div class="join-benefit">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#DFFF00" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          <span>Greater self-confidence and a clearer vision for the future</span>
+        </div>
+        <div class="join-benefit">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#DFFF00" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span>Awareness of educational and career opportunities</span>
+        </div>
+        <div class="join-benefit">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#DFFF00" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span>Practical digital skills and AI literacy</span>
+        </div>
+        <div class="join-benefit">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="#DFFF00" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>Motivation to become leaders, innovators, and change-makers</span>
+        </div>
+      </div>
+      <p style="font-size:13px;color:rgba(249,250,251,.3);">October 11, 2026 &bull; 10:00 AM - 3:00 PM</p>
+    </div>
+    <div class="join-cards">
+      <div class="join-card-btn fade-up" style="transition-delay:.2s;">
+        <div class="jc-icon" style="background:rgba(223,255,0,.08);"><span style="color:#DFFF00;">&#9733;</span></div>
+        <h3>Register as Participant</h3>
+        <p>Girls aged 10-18 ready to own their future</p>
+        <div class="jc-link" style="color:#DFFF00;">Get Started &#8594;</div>
+      </div>
+      <div class="join-card-btn fade-up" style="transition-delay:.3s;">
+        <div class="jc-icon" style="background:rgba(157,80,187,.08);"><span style="color:#9D50BB;">&#9829;</span></div>
+        <h3>Volunteer with Us</h3>
+        <p>Help make the event a success for everyone</p>
+        <div class="jc-link" style="color:#9D50BB;">Get Started &#8594;</div>
+      </div>
+      <div class="join-card-btn fade-up" style="transition-delay:.4s;">
+        <div class="jc-icon" style="background:rgba(0,212,255,.08);"><span style="color:#00D4FF;">&#9881;</span></div>
+        <h3>Become a Sponsor</h3>
+        <p>Partner with us to invest in girl empowerment</p>
+        <div class="jc-link" style="color:#00D4FF;">Get Started &#8594;</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-bg-text">
+    <div class="container">
+      <h2>INTERNATIONAL<br>DAY OF THE<br>GIRL CHILD<br><span class="lime">2026</span></h2>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <div class="footer-bar-inner">
+      <div class="footer-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#sessions">Sessions</a>
+        <a href="#agenda">Agenda</a>
+      </div>
+      <div class="footer-tagline">
+        <span>Made with</span>
+        <span class="heart">&#9829;</span>
+        <span>for every girl owning her future</span>
+      </div>
+      <p class="footer-copy">#OwnYourFuture &bull; October 11, 2026</p>
     </div>
   </div>
 </footer>
 
 <script>
-document.addEventListener('DOMContentLoaded',function(){
-  // Mobile nav
-  var toggle=document.getElementById('navToggle');
-  var navLinks=document.getElementById('navLinks');
-  toggle.addEventListener('click',function(){
-    var open=navLinks.classList.toggle('open');
-    toggle.setAttribute('aria-expanded',open);
+  // Hamburger
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', function() {
+    this.classList.toggle('active');
+    navLinks.classList.toggle('open');
   });
-
-  // FAQ accordion
-  document.querySelectorAll('.faq-question').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      var item=this.parentElement;
-      var expanded=this.getAttribute('aria-expanded')==='true';
-      document.querySelectorAll('.faq-item.active').forEach(function(i){
-        if(i!==item){i.classList.remove('active');i.querySelector('.faq-question').setAttribute('aria-expanded','false')}
-      });
-      item.classList.toggle('active');
-      this.setAttribute('aria-expanded',!expanded);
+  document.querySelectorAll('.nav-links a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('active');
+      navLinks.classList.remove('open');
     });
   });
 
-  // Intersection Observer for fade-up animations
-  var observer=new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
+  // Nav scroll
+  window.addEventListener('scroll', function() {
+    const nav = document.getElementById('nav');
+    if (window.pageYOffset > 60) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  // Scroll animations
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
         entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
       }
     });
-  },{threshold:.1});
-
-  document.querySelectorAll('.fade-up').forEach(function(el){observer.observe(el)});
-
-  // Animated counters
-  var counterObserver=new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){
-      if(entry.isIntersecting){
-        var el=entry.target;
-        var target=parseInt(el.getAttribute('data-target'));
-        var duration=2000;
-        var startTime=null;
-        function animate(timestamp){
-          if(!startTime)startTime=timestamp;
-          var progress=Math.min((timestamp-startTime)/duration,1);
-          var current=Math.floor(progress*target);
-          el.textContent=current.toLocaleString();
-          if(progress<1)requestAnimationFrame(animate);
-        }
-        requestAnimationFrame(animate);
-        counterObserver.unobserve(el);
-      }
-    });
-  },{threshold:.5});
-
-  document.querySelectorAll('.counter').forEach(function(el){counterObserver.observe(el)});
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){
-    a.addEventListener('click',function(e){
-      e.preventDefault();
-      var target=document.querySelector(this.getAttribute('href'));
-      if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
-    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  document.querySelectorAll('.fade-up, .slide-left, .slide-right').forEach(function(el) {
+    observer.observe(el);
   });
-});
+
+  // I AM Activation
+  const iamInput = document.getElementById('iamInput');
+  const generateBtn = document.getElementById('generateCard');
+  const cardPreview = document.getElementById('cardPreview');
+  const cardText = document.getElementById('cardText');
+
+  iamInput.addEventListener('input', function() {
+    generateBtn.disabled = !this.value.trim();
+  });
+
+  generateBtn.addEventListener('click', function() {
+    const val = iamInput.value.trim();
+    if (val) {
+      cardText.innerHTML = 'I AM <span style="color:#DFFF00;">' + val + '</span>';
+      cardPreview.style.display = 'block';
+    }
+  });
+
+  // Mentor form
+  document.getElementById('mentorForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = this.querySelector('button[type="submit"]');
+    btn.textContent = 'Application Received!';
+    btn.style.background = '#DFFF00';
+    btn.style.color = '#08080A';
+    setTimeout(function() {
+      btn.textContent = 'Submit Mentor Application';
+      btn.style.background = '';
+      btn.style.color = '';
+    }, 3000);
+  });
 </script>
 </body>
 </html>
